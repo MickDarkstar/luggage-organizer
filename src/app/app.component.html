@@ -1,13 +1,14 @@
 <!-- https://code-maze.com/angular-material-navigation/#navigationdevelopment -->
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
-    <!--this is a place for us to add side-nav code-->
+    <!--side-nav code-->
+    <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!--in here all the content must reside. We will add a navigation header as well-->
+    <!--all the content must reside here. And an navigation header as well-->
     <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
     <main>
-      Lite trams!
+      <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
