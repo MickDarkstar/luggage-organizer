@@ -1,5 +1,5 @@
 <div class="flex" cdkDropListGroup>
-    <div class="items-container view-50 red">
+    <div class="app-container view-50 darkslategray">
         <h2>Kollin</h2>
 
         <div cdkDropList [cdkDropListData]="items" class="app-list" (cdkDropListDropped)="drop($event)">
@@ -11,12 +11,11 @@
         </div>
     </div>
 
-    <div class="person-container view-50 green">
-        <div *ngFor="let person of persons">
-            <div cdkDropList [cdkDropListData]="person.items" (cdkDropListDropped)="drop($event)">
-
+    <div class="app-container view-50 black">
+        <div *ngFor="let person of persons" class="person-container">
+            <div class="pad-8" cdkDropList [cdkDropListData]="person.items" (cdkDropListDropped)="drop($event)">
                 <div>
-                    <h3>{{ person.name }}</h3>
+                    <h4>{{ person.name }}</h4>
                     Vikt: {{ sumWeightPersonItems(person) }} kg<span>, Handbaggage:
                         {{ countPersonHandluggage(person) }}, Kollin: {{ countPersonItems(person) }} st
                     </span>

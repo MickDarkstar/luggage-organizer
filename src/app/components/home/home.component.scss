@@ -1,21 +1,7 @@
-h1,h2,h3 {
-    margin: 0 auto;
-  }
-.flex {
-  display: flex;
-}
-
-.view-50 {
-  width: 50vw;
-  height: 100vh;
-}
-
-.red {
-    background-color: darkslategray;
-}
-
-.green {
-  background-color: black;
+.person-container {
+  box-shadow: darkslategray 2px 2px 6px;
+  border-radius: 8px;
+  margin-bottom: 4px;
 }
 
 .sticky-button {

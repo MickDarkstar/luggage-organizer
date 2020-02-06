@@ -1,8 +1,7 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 // https://www.positronx.io/create-angular-material-8-custom-theme/
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -13,7 +12,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$responsive-sidenav-primary: mat-palette($mat-gray, 900);
+$responsive-sidenav-primary: mat-palette($mat-gray, A900);
 $responsive-sidenav-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -21,7 +20,11 @@ $responsive-sidenav-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 // $responsive-sidenav-theme: mat-light-theme($responsive-sidenav-primary, $responsive-sidenav-accent, $responsive-sidenav-warn);
-$responsive-sidenav-theme: mat-dark-theme($responsive-sidenav-primary, $responsive-sidenav-accent, $responsive-sidenav-warn);
+$responsive-sidenav-theme: mat-dark-theme(
+  $responsive-sidenav-primary,
+  $responsive-sidenav-accent,
+  $responsive-sidenav-warn
+);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -29,5 +32,35 @@ $responsive-sidenav-theme: mat-dark-theme($responsive-sidenav-primary, $responsi
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.view-50 {
+  width: 50vw;
+  height: 100vh;
+}
+.app-container {
+  padding: 6px;
+}
+
+.pad-8 {
+  padding: 8px;
+}
