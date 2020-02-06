@@ -1,0 +1,74 @@
+h1,h2,h3 {
+    margin: 0 auto;
+  }
+.flex {
+  display: flex;
+}
+
+.view-50 {
+  width: 50vw;
+  height: 100vh;
+}
+
+.red {
+    background-color: darkslategray;
+}
+
+.green {
+  background-color: black;
+}
+
+.sticky-button {
+  border-radius: 26px;
+  position: fixed !important;
+  bottom: 8px !important;
+  right: 8px !important;
+}
+
+.app-list {
+  border: solid 1px #ccc;
+  min-height: 16px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.app-box {
+  padding: 8px 6px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.app-box:last-child {
+  border: none;
+}
+.app-list {
+  margin-bottom: 8px;
+}
+
+.app-list.cdk-drop-list-dragging .app-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

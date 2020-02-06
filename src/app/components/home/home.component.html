@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div class="flex" cdkDropListGroup>
+    <div class="items-container view-50 red">
+        <h2>Kollin</h2>
+
+        <div cdkDropList [cdkDropListData]="items" class="app-list" (cdkDropListDropped)="drop($event)">
+            <div class="app-box" *ngFor="let item of items" cdkDrag>
+                <span>#{{ item.number }}</span>
+                {{ item.name}}
+                <span>{{ item.weight }} kg</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="person-container view-50 green">
+        <div *ngFor="let person of persons">
+            <div cdkDropList [cdkDropListData]="person.items" (cdkDropListDropped)="drop($event)">
+
+                <div>
+                    <h3>{{ person.name }}</h3>
+                    Vikt: {{ sumWeightPersonItems(person) }} kg<span>, Handbaggage:
+                        {{ countPersonHandluggage(person) }}, Kollin: {{ countPersonItems(person) }} st
+                    </span>
+                </div>
+
+                <div class="app-list">
+                    <div class="app-box" *ngFor="let item of person.items" cdkDrag>
+                        <span>#{{ item.number }}</span>
+                        {{ item.name}}
+                        <span>{{ item.weight }} kg</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

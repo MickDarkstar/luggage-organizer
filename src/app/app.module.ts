@@ -11,6 +11,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ContactComponent } from './components/contact/contact.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
+    DragDropModule,
+    FormsModule
   ],
   exports: [
   ],
