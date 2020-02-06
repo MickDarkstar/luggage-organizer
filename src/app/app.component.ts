@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'responsive-sidenav';
+
+  verify() {
+    alert('Looking good!');
+  }
+
+  save() {
+    alert('Sparat!');
+  }
 }

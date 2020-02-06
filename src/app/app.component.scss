@@ -1,13 +1,21 @@
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-    height: 100%;
-}
- 
+mat-sidenav-container,
+mat-sidenav-content,
 mat-sidenav {
-    width: 250px;
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
 }
 
 main {
-    padding: 0px;
-    // ändra till 56 eller vad det är i small screen
-    margin-top:64px;
+  padding: 0px;
+  // ändra till 56 eller vad det är i small screen
+  margin-top: 64px;
+}
+
+.sticky-container {
+  position: fixed !important;
+  bottom: 8px !important;
+  right: 26px !important;
 }

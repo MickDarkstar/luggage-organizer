@@ -36,11 +36,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      this.mockItem('Handsväska', ItemType.HandLuggage, 8),
-      this.mockItem('Handsväska Dator', ItemType.HandLuggage, 2),
-      this.mockItem('Handsväska Dator', ItemType.HandLuggage, 2),
-      this.mockItem('Handsväska', ItemType.HandLuggage, 4),
-      this.mockItem('Handsväska', ItemType.HandLuggage, 5),
+      this.mockItem('Handväska', ItemType.HandLuggage, 8),
+      this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),
+      this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),
+      this.mockItem('Handväska', ItemType.HandLuggage, 4),
+      this.mockItem('Handväska', ItemType.HandLuggage, 5),
       this.mockItem('Ryggsäck', ItemType.HandLuggage, 8),
       this.mockItem('Resväska', ItemType.Luggage, 20),
       this.mockItem('Resväska', ItemType.Luggage, 23),

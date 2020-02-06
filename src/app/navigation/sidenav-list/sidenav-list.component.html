@@ -1,12 +1,12 @@
 <mat-nav-list>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
-        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
-    </a>
     <a mat-list-item routerLink="/about" (click)="onSidenavClose()">
-        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">About</span>
+        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Administrera</span>
+    </a>
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+        <mat-icon>flight_takeoff</mat-icon> <span class="nav-caption">Organisera</span>
     </a>
     <a mat-list-item routerLink="#" (click)="onSidenavClose()">
-        <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
+        <mat-icon>settings</mat-icon><span class="nav-caption">Settings</span>
     </a>
     <mat-list-item [matMenuTriggerFor]="menu">
         <mat-icon>unfold_more</mat-icon>
