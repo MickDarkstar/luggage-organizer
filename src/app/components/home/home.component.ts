@@ -13,7 +13,7 @@ import { IPerson } from 'src/app/models/person.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private autoincrementId = 1;
+  private autoincrementId = 0;
   items: IItem[];
   persons: IPerson[];
 
