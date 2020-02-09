@@ -12,12 +12,11 @@ import { HomeComponent } from './components/home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { EditPersonComponent } from './components/personer/edit-person/edit-person.component';
+import { EditPersonComponent } from './components/persons/edit-person/edit-person.component';
 import { EditItemComponent } from './components/items/edit-item/edit-item.component';
 import { EditRulesComponent } from './components/rules/edit-rules/edit-rules.component';
 import { RulesComponent } from './components/rules/rules.component';
-import { PersonerComponent } from './components/personer/personer.component';
+import { PersonsComponent } from './components/persons/persons.component';
 import { ItemsComponent } from './components/items/items.component';
 
 
@@ -28,12 +27,11 @@ import { ItemsComponent } from './components/items/items.component';
     SidenavListComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent,
     EditPersonComponent,
     EditItemComponent,
     EditRulesComponent,
     RulesComponent,
-    PersonerComponent,
+    PersonsComponent,
     ItemsComponent
   ],
   imports: [
