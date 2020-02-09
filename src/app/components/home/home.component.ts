@@ -6,6 +6,9 @@ import {
 } from '@angular/cdk/drag-drop';
 import { IItem, ItemType } from 'src/app/models/item.model';
 import { IPerson } from 'src/app/models/person.model';
+import { PersonerService } from 'src/app/services/personer.service';
+import { ItemsService } from 'src/app/services/items.service';
+import { RulesService } from 'src/app/services/rules.service';
 
 @Component({
   selector: 'app-home',
@@ -13,48 +16,21 @@ import { IPerson } from 'src/app/models/person.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private autoincrementId = 0;
   items: IItem[];
   persons: IPerson[];
 
-  // Gränsvärden
-  thresholdPersonItemCount: any;
-
-  thresholdPersonHandLuggageCount: any;
-  thresholdHandLuggageTotalMaxWeight: any;
-
-  thresholdLuggagePerPerson: any;
-  thresholhLuggagePerPersonMaxWeight: any;
-
-  thresholdSpecialLuggagePerPerson: any;
-  thresholdSpecialLuggagePerPersonMaxWeight: any;
-
-  constructor() {
+  constructor(
+    private personService: PersonerService,
+    private itemService: ItemsService,
+    private rulesService: RulesService
+  ) {
     this.items = [];
     this.persons = [];
   }
 
   ngOnInit() {
-    this.items = [
-      this.mockItem('Handväska', ItemType.HandLuggage, 8),
-      this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),
-      this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),
-      this.mockItem('Handväska', ItemType.HandLuggage, 4),
-      this.mockItem('Handväska', ItemType.HandLuggage, 5),
-      this.mockItem('Ryggsäck', ItemType.HandLuggage, 8),
-      this.mockItem('Resväska', ItemType.Luggage, 20),
-      this.mockItem('Resväska', ItemType.Luggage, 23),
-      this.mockItem('Resväska', ItemType.Luggage, 20),
-      this.mockItem('Resväska', ItemType.Luggage, 13),
-      this.mockItem('Resväska', ItemType.Luggage, 20),
-      this.mockItem('Resväska', ItemType.Luggage, 20),
-      this.mockItem('Case', ItemType.SpecialLuggage, 0),
-      this.mockItem('Case', ItemType.SpecialLuggage, 0),
-      this.mockItem('Case', ItemType.SpecialLuggage, 0),
-      this.mockItem('Case', ItemType.SpecialLuggage, 0),
-      this.mockItem('Case', ItemType.SpecialLuggage, 0)
-    ] as IItem[];
-    this.mockPersons();
+    this.items = this.itemService.items;
+    this.persons = this.personService.persons;
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -75,44 +51,28 @@ export class HomeComponent implements OnInit {
   }
 
   countPersonHandluggage(person: IPerson) {
-    const counted = person.items.filter(x => x.type === ItemType.HandLuggage)
-      .length;
-    return counted;
+    return this.rulesService.countPersonHandluggage(person);
   }
 
   countPersonluggage(person: IPerson) {
-    return person.items.filter(x => x.type === ItemType.Luggage).length;
+    return this.rulesService.countPersonluggage(person);
   }
 
   countSpecialLuggage(person: IPerson) {
-    return person.items.filter(x => x.type === ItemType.SpecialLuggage).length;
+    return this.rulesService.countSpecialLuggage(person);
   }
 
   countPersonItems(person: IPerson) {
-    return person.items.length;
+    return this.rulesService.countPersonItems(person);
   }
 
   private verifyItemsTotalWeight(item: IItem, person: IPerson): boolean {
-    let handLuggageTotalWeight = 0;
-    if (item.type === ItemType.HandLuggage) {
-      handLuggageTotalWeight += item.weight;
-    }
-    if (handLuggageTotalWeight > this.thresholdHandLuggageTotalMaxWeight) {
-      alert(
-        'Woops!' +
-        person.name +
-        's handbagage med nr ' +
-        item.number +
-        ' väger för mycket'
-      );
-      return false;
-    }
-    return true;
+    return this.rulesService.verifyItemsTotalWeight(item, person);
   }
 
   private verifyHandluggage(person: IPerson) {
     if (
-      this.countPersonHandluggage(person) > this.thresholdPersonHandLuggageCount
+      this.countPersonHandluggage(person) > this.rulesService.maxPersonHandLuggageCount
     ) {
       alert('Woops!' + person.name + ' har visst för många handbagage');
       return false;
@@ -121,20 +81,7 @@ export class HomeComponent implements OnInit {
   }
 
   private verifyTotalNoneSpecialItems(person: IPerson) {
-    let counted = 0;
-    person.items.forEach(item => {
-      if (item.type !== ItemType.SpecialLuggage) {
-        counted++;
-      }
-    });
-    if (counted > this.thresholdPersonItemCount) {
-      const diff = counted - this.thresholdPersonItemCount;
-      alert(
-        'Woops!' + person.name + ' har ' + diff + ' mer än tillåtna kollin'
-      );
-      return false;
-    }
-    return true;
+    return this.rulesService.verifyTotalNoneSpecialItems(person);
   }
 
   private sumWeightPersonItems(person: IPerson) {
@@ -152,61 +99,5 @@ export class HomeComponent implements OnInit {
       return this.sumWeightPersonItems(acc) + this.sumWeightPersonItems(cur);
     });
     return totalSum;
-  }
-
-  private mockPersons() {
-    this.persons = [
-      {
-        id: 1,
-        name: 'Emil',
-        items: []
-      } as IPerson,
-      {
-        id: 2,
-        name: 'Pähr',
-        items: []
-      } as IPerson,
-      {
-        id: 3,
-        name: 'Dawid',
-        items: []
-      } as IPerson,
-      {
-        id: 4,
-        name: 'Johan',
-        items: []
-      } as IPerson,
-      {
-        id: 5,
-        name: 'Jocke',
-        items: []
-      } as IPerson,
-      {
-        id: 6,
-        name: 'Ylva',
-        items: []
-      } as IPerson,
-      {
-        id: 7,
-        name: 'Micke',
-        items: []
-      } as IPerson,
-      {
-        id: 8,
-        name: 'Mats',
-        items: []
-      } as IPerson
-    ] as IPerson[];
-  }
-
-  private mockItem(name: string, luggageType: ItemType, weight: number) {
-    this.autoincrementId++;
-    return {
-      id: this.autoincrementId,
-      name,
-      number: this.autoincrementId,
-      type: luggageType,
-      weight
-    } as IItem;
   }
 }
