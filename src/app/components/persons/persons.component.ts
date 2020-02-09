@@ -9,7 +9,7 @@ import { PersonerService } from 'src/app/services/personer.service';
 })
 export class PersonsComponent implements OnInit {
   persons: IPerson[];
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['id', 'name', 'delete'];
 
   constructor(
     private personsService: PersonerService
@@ -18,6 +18,11 @@ export class PersonsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.persons = this.personsService.persons;
+  }
+
+  remove(person: IPerson) {
+    this.personsService.delete(person);
     this.persons = this.personsService.persons;
   }
 }

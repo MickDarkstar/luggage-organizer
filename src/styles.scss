@@ -73,3 +73,20 @@ h5 {
 .fixed {
   position: fixed;
 }
+
+.br-4 {
+  border-radius: 4px;
+}
+
+.br-8 {
+  border-radius: 8px;
+}
+
+// mat-table
+.mat-header-cell {
+  font-size: larger;
+}
+
+.mat-cell {
+  font-size: large;
+}

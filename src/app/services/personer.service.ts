@@ -5,8 +5,18 @@ import { IPerson } from '../models/person.model';
   providedIn: 'root'
 })
 export class PersonerService {
+  private _persons: IPerson[];
+
   get persons() {
-    return [
+    return this._persons;
+  }
+
+  set persons(persons: IPerson[]) {
+    this._persons = persons;
+  }
+
+  constructor() {
+    this._persons = [
       {
         id: 1,
         name: 'Emil',
@@ -50,5 +60,7 @@ export class PersonerService {
     ] as IPerson[];
   }
 
-  constructor() { }
+  delete(person: IPerson) {
+    this.persons = this.persons.filter(x => x.id !== person.id);
+  }
 }

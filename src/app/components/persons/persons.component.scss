@@ -1,4 +1,9 @@
 table {
-    width: 100%;
-  }
-  
+  width: 100%;
+  font-size: 14px;
+}
+
+.content {
+    // header i table flyttar sig inte. Måste nog köra ng-deep för det att slå igenom
+    // text-align: center;
+}

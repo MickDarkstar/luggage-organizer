@@ -5,8 +5,21 @@ import { IItem, ItemType } from '../models/item.model';
   providedIn: 'root'
 })
 export class ItemsService {
+  private _items: IItem[];
+
   get items() {
-    return [
+    return this._items;
+  }
+
+  set items(items: IItem[]) {
+    this._items = items;
+  }
+  
+  // Mock
+  private autoincrementId = 0;
+
+  constructor() { 
+    this.items = [
       this.mockItem('Handväska', ItemType.HandLuggage, 8),
       this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),
       this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),
@@ -27,10 +40,9 @@ export class ItemsService {
     ] as IItem[];
   }
 
-  // Mock
-  private autoincrementId = 0;
-
-  constructor() { }
+  delete(item: IItem) {
+    this.items = this.items.filter(x => x.id !== item.id);
+  }
 
   private mockItem(name: string, luggageType: ItemType, weight: number) {
     this.autoincrementId++;
