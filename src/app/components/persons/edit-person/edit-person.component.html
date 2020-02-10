@@ -1,1 +1,10 @@
-<p>edit-person works!</p>
+<div class="app-container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+        <mat-form-field appearance="fill">
+            <mat-label>Namn</mat-label>
+            <input matInput placeholder="Namn" [formControl]="name">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <button mat-raised-button color="accent" type="submit" class="button" [disabled]="!formGroup.valid">Spara</button>
+    </form>
+</div>

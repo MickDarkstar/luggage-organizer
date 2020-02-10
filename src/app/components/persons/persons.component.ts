@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPerson } from 'src/app/models/person.model';
 import { PersonerService } from 'src/app/services/personer.service';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-persons',
@@ -8,21 +9,30 @@ import { PersonerService } from 'src/app/services/personer.service';
   styleUrls: ['./persons.component.scss']
 })
 export class PersonsComponent implements OnInit {
-  persons: IPerson[];
-  displayedColumns: string[] = ['id', 'name', 'delete'];
+  selectedPerson: IPerson;
+  displayedColumns: string[] = ['id', 'name', 'edit', 'delete'];
 
   constructor(
     private personsService: PersonerService
   ) {
-    this.persons = [];
+    this.selectedPerson = null;
   }
 
   ngOnInit() {
-    this.persons = this.personsService.persons;
+  }
+
+  handleOutput(person: IPerson) {
+    person.items = [];
+    person.order = 0;
+    this.personsService.save(person);
+    this.selectedPerson = null;
+  }
+
+  edit(person: IPerson) {
+    this.selectedPerson = person;
   }
 
   remove(person: IPerson) {
     this.personsService.delete(person);
-    this.persons = this.personsService.persons;
   }
 }

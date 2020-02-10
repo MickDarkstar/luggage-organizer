@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import { IPerson } from '../models/person.model';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonerService {
-  private _persons: IPerson[];
+  private _persons = new BehaviorSubject<IPerson[]>([]);
+  private dataStore: { personer: IPerson[] } = { personer: [] as IPerson[] };
 
   get persons() {
-    return this._persons;
-  }
-
-  set persons(persons: IPerson[]) {
-    this._persons = persons;
+    return this._persons.asObservable();
   }
 
   constructor() {
-    this._persons = [
+    const mockData = [
       {
         id: 1,
         name: 'Emil',
@@ -58,9 +56,32 @@ export class PersonerService {
         items: []
       } as IPerson
     ] as IPerson[];
+
+    this.dataStore.personer = mockData;
+    this.updateLocalDataStore();
+  }
+
+  save(person: IPerson) {
+    if (this.dataStore.personer.some(x => x.id === person.id)) {
+      this.dataStore.personer.map(x => {
+        if (x.id === person.id) {
+          x.name = person.name;
+        }
+      });
+      this.updateLocalDataStore();
+    } else {
+      person.id = this.dataStore.personer.length + 1;
+      this.dataStore.personer = [...this.dataStore.personer, person];
+      this.updateLocalDataStore();
+    }
   }
 
   delete(person: IPerson) {
-    this.persons = this.persons.filter(x => x.id !== person.id);
+    this.dataStore.personer = this.dataStore.personer.filter(item => item.id !== person.id);
+    this.updateLocalDataStore();
+  }
+
+  private updateLocalDataStore() {
+    this._persons.next(Object.assign({}, this.dataStore).personer);
   }
 }

@@ -14,11 +14,11 @@ export class ItemsService {
   set items(items: IItem[]) {
     this._items = items;
   }
-  
+
   // Mock
   private autoincrementId = 0;
 
-  constructor() { 
+  constructor() {
     this.items = [
       this.mockItem('Handväska', ItemType.HandLuggage, 8),
       this.mockItem('Handväska Dator', ItemType.HandLuggage, 2),

@@ -13,7 +13,7 @@
 
     <div class="app-container view-50" style="margin-left: 51vw;">
         <h4>Resenärer</h4>
-        <div *ngFor="let person of persons" class="person-container">
+        <div *ngFor="let person of this.personService.persons | async" class="person-container">
             <div class="pad-8" cdkDropList [cdkDropListData]="person.items" (cdkDropListDropped)="drop($event)">
                 <strong>{{ person.name }}</strong>
                 Vikt: {{ sumWeightPersonItems(person) }} kg<span>, Handbaggage:

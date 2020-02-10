@@ -17,7 +17,6 @@ import { RulesService } from 'src/app/services/rules.service';
 })
 export class HomeComponent implements OnInit {
   items: IItem[];
-  persons: IPerson[];
 
   constructor(
     private personService: PersonerService,
@@ -25,12 +24,10 @@ export class HomeComponent implements OnInit {
     private rulesService: RulesService
   ) {
     this.items = [];
-    this.persons = [];
   }
 
   ngOnInit() {
     this.items = this.itemService.items;
-    this.persons = this.personService.persons;
   }
 
   drop(event: CdkDragDrop<string[]>) {

@@ -10,7 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
 import { EditPersonComponent } from './components/persons/edit-person/edit-person.component';
 import { EditItemComponent } from './components/items/edit-item/edit-item.component';
@@ -18,6 +18,7 @@ import { EditRulesComponent } from './components/rules/edit-rules/edit-rules.com
 import { RulesComponent } from './components/rules/rules.component';
 import { PersonsComponent } from './components/persons/persons.component';
 import { ItemsComponent } from './components/items/items.component';
+import { MatFormFieldModule } from '@angular/material';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ItemsComponent } from './components/items/items.component';
     FlexLayoutModule,
     MaterialModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
   ],

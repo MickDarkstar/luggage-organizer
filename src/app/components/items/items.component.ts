@@ -10,7 +10,7 @@ import { ItemsService } from 'src/app/services/items.service';
 export class ItemsComponent implements OnInit {
   items: IItem[];
   displayedColumns: string[] = [
-    'id', 
+    'id',
     'name',
     'type',
     'number',
