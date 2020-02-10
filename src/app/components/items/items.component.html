@@ -1,6 +1,6 @@
 <div class="app-container content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
     <div fxFlexFill fxFlex="20" fxShow.lg="true" fxShow.gt-md="false" fxShow="true"></div>
-    <table mat-table [dataSource]="items" class="mat-elevation-z8" fxFlex="100" class="sec1" fxFlex.lg="60">
+    <table mat-table [dataSource]="this.itemsService.items | async" class="mat-elevation-z8" fxFlex="100" class="sec1" fxFlex.lg="60">
         <!-- Id Column -->
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> No. </th>

@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = this.itemService.items;
+    this.itemService.items.subscribe(items => {
+      this.items = items;
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      // Todo: Tilldela item.personId = person.id eller item.personId = null beroende på flytt till person eller itemlistan.
     }
   }
 

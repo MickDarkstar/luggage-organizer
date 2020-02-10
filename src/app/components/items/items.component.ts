@@ -25,11 +25,16 @@ export class ItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = this.itemsService.items;
+    // Todo: använd en separat lista för att ha koll på items som ännu ej tilldelats till person
+    // Todo: kontrollera vilka items som är tilldelade till person
+    // this.itemsService.items
+  }
+
+  save(item: IItem) {
+    this.itemsService.save(item);
   }
 
   remove(item: IItem) {
     this.itemsService.delete(item);
-    this.items = this.itemsService.items;
   }
 }
