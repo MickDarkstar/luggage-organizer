@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
+import { SettingsComponent } from './components/settings/settings.component';
 import { CommonModule } from '@angular/common';
 import { RulesComponent } from './components/rules/rules.component';
 import { ItemsComponent } from './components/items/items.component';
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'rules', component: RulesComponent },
   { path: 'items', component: ItemsComponent },
   { path: 'persons', component: PersonsComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 @NgModule({

@@ -10,8 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { AboutComponent } from './components/about/about.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SettingsComponent } from './components/settings/settings.component';
 import { EditPersonComponent } from './components/persons/edit-person/edit-person.component';
 import { EditItemComponent } from './components/items/edit-item/edit-item.component';
 import { EditRulesComponent } from './components/rules/edit-rules/edit-rules.component';
@@ -27,7 +27,7 @@ import { MatFormFieldModule } from '@angular/material';
     HeaderComponent,
     SidenavListComponent,
     HomeComponent,
-    AboutComponent,
+    SettingsComponent,
     EditPersonComponent,
     EditItemComponent,
     EditRulesComponent,

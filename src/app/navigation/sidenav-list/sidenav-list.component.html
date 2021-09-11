@@ -1,28 +1,25 @@
 <mat-nav-list>
-    <a mat-list-item routerLink="/rules" (click)="onSidenavClose()">
-        <mat-icon>done</mat-icon> <span class="nav-caption">Regler</span>
-    </a>
-    <a mat-list-item routerLink="/items" (click)="onSidenavClose()">
-        <mat-icon>work</mat-icon> <span class="nav-caption">Kollin</span>
-    </a>
-    <a mat-list-item routerLink="/persons" (click)="onSidenavClose()">
-        <mat-icon>person</mat-icon> <span class="nav-caption">Personer</span>
-    </a>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
-        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Organisera</span>
-    </a>
-    <a mat-list-item routerLink="#" (click)="onSidenavClose()">
-        <mat-icon>settings</mat-icon><span class="nav-caption">Settings</span>
-    </a>
-    <a mat-list-item routerLink="/about" (click)="onSidenavClose()">
-        <mat-icon>about</mat-icon> <span class="nav-caption">About</span>
-    </a>
-    <mat-list-item [matMenuTriggerFor]="menu">
-        <mat-icon>unfold_more</mat-icon>
-        <a matline>Parent Item</a>
-    </mat-list-item>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="onSidenavClose()">Sub Item 1</button>
-        <button mat-menu-item (click)="onSidenavClose()">Sub Item 2</button>
-    </mat-menu>
+  <a mat-list-item routerLink="/rules" (click)="onSidenavClose()">
+    <mat-icon>done</mat-icon> <span class="nav-caption">Regler</span>
+  </a>
+  <a mat-list-item routerLink="/items" (click)="onSidenavClose()">
+    <mat-icon>work</mat-icon> <span class="nav-caption">Kollin</span>
+  </a>
+  <a mat-list-item routerLink="/persons" (click)="onSidenavClose()">
+    <mat-icon>person</mat-icon> <span class="nav-caption">Personer</span>
+  </a>
+  <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+    <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Organisera</span>
+  </a>
+  <a mat-list-item routerLink="/settings" (click)="onSidenavClose()">
+    <mat-icon>settings</mat-icon> <span class="nav-caption">Settings</span>
+  </a>
+  <mat-list-item [matMenuTriggerFor]="menu">
+    <mat-icon>unfold_more</mat-icon>
+    <a matline>Parent Item</a>
+  </mat-list-item>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onSidenavClose()">Sub Item 1</button>
+    <button mat-menu-item (click)="onSidenavClose()">Sub Item 2</button>
+  </mat-menu>
 </mat-nav-list>
